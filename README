@@ -1,0 +1,19 @@
+
+# Run a command with a progress indicator
+java org.xyxyx.progressmeter.SlaveController <command> [arg1 [arg2 [...]]]
+
+# By default, the command is identified by the command and it's argument.  The
+# ID can be overridden manually as follows:
+java -Dpm.id=foo org.xyxyx.progressmeter.SlaveController <command> [arg1 [arg2 [...]]]
+
+# By default, the current directory is NOT used to identify the command being
+# run.  This can be overriden as follows:
+java -Dpm.cwd.significant=true org.xyxyx.progressmeter.SlaveController <command> [arg1 [arg2 [...]]]
+
+# By default, the command arguments ARE used to identify the command being run.
+# This can be overriden as follows:
+java -Dpm.args.significant=false org.xyxyx.progressmeter.SlaveController <command> [arg1 [arg2 [...]]]
+
+# Alternative way to us the progress meter.  Rather than executing a command,
+# pipe data from stdin, and record it with the given ID.
+java org.xyxyx.progressmeter.PipeController id
